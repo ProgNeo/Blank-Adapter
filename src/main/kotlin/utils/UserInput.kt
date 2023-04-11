@@ -8,7 +8,12 @@ fun readNumberInRange(min: Int, max: Int): Int {
     number = input?.toIntOrNull()
 
     number?.let {
-        return it
+        if (it in min..max) {
+            return it
+        } else {
+            println("Неверный ввод")
+            return readNumberInRange(min, max)
+        }
     } ?: run {
         println("Неверный ввод")
         return readNumberInRange(min, max)
